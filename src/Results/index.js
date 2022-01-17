@@ -1,8 +1,7 @@
 import axios from 'axios';
+import getToken from '../getToken';
 
 import './style.css';
-
-const token = 'BQAGi-eelod-hkUhsPSnWtwKT9qxNMfwZZmSufPAnMvZKJd68OnK6_mrg0yZyBnvANArMk5e_ygP2oomRCE';
 
 const getImage = (result) =>
   (result.type === 'track' ? result.album.images[1]?.url : result.images[1]?.url) ||
@@ -21,7 +20,7 @@ const ResultsForAll = ({ results, setResults, setLoading, nextUrl, setNextUrl })
   const handleShowMore = async () => {
     setLoading(true);
 
-    const headers = { Authorization: `Bearer ${token}` };
+    const headers = { Authorization: `Bearer ${getToken()}` };
     // Adding all types to just albums next URL
     const { data } = await axios.get(addAllTypesToNextUrl(nextUrl), { headers });
     const results = [...data.albums.items, ...data.artists.items, ...data.tracks.items];
@@ -61,7 +60,7 @@ const ResultsForType = ({ results, setResults, setLoading, nextUrl, setNextUrl, 
   const handleShowMore = async () => {
     setLoading(true);
 
-    const headers = { Authorization: `Bearer ${token}` };
+    const headers = { Authorization: `Bearer ${getToken()}` };
     const { data } = await axios.get(nextUrl, { headers });
     const results = data[searchType.toLowerCase() + 's'].items;
     const newNextUrl = data[searchType.toLowerCase() + 's'].next;

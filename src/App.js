@@ -5,8 +5,7 @@ import './App.css';
 import SearchBar from './SearchBar';
 import FilterBar from './FilterBar';
 import Results from './Results';
-
-const token = 'BQAGi-eelod-hkUhsPSnWtwKT9qxNMfwZZmSufPAnMvZKJd68OnK6_mrg0yZyBnvANArMk5e_ygP2oomRCE';
+import getToken from './getToken';
 
 function App() {
   const [query, setQuery] = useState('');
@@ -26,7 +25,7 @@ function App() {
       limit: searchTypeInput === 'All' ? 2 : 5,
       offset: 0,
     };
-    const headers = { Authorization: `Bearer ${token}` };
+    const headers = { Authorization: `Bearer ${getToken()}` };
     const { data } = await axios.get('https://api.spotify.com/v1/search', { params, headers });
 
     const results = searchTypeInput === 'All' ?
