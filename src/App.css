@@ -1,0 +1,17 @@
+.SpinnerLoading img {
+  border: none;
+}
+
+.SearchFilterBar {
+  width: 100vw;
+  height: 35vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+}
+
+button {
+  cursor: pointer;
+}
+

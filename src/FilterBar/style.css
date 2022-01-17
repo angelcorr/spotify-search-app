@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Arsenal&family=Heebo:wght@300&display=swap');
+
+.SearchBar {
+  margin: 20px 0;
+}
+
+.FilterButton,
+.FilterBarCurrent {
+  font-family: 'Heebo', sans-serif;
+  width: 6vw;
+  height: 6vh;
+  background-color: #000000;
+  color: #FFFF;
+  border: 1px solid #FFFF;
+  border-radius: 25px;
+  margin: 0 .8rem;
+}
+
+.FilterBarCurrent {
+  color: #60ca60;
+}
+
+@media (min-width: 320px) and (max-width: 550px) {
+  .FilterButton,
+  .FilterBarCurrent {
+    width: 15vw;
+    height: 4vh;
+    font-size: 0.7rem;
+    padding: 5px 0 5px 0;
+  }
+}
+
+@media (min-width: 551px) and (max-width: 1000px) {
+  .FilterButton,
+  .FilterBarCurrent {
+    width: 15vw;
+    height: 5vh;
+    font-size: 0.9rem;
+    padding: 5px 0 5px 0;
+  }
+}

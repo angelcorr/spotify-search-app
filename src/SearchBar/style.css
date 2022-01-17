@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Arsenal&family=Heebo:wght@300&display=swap');
+
+form {
+  width: 75vw;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+form,
+label {
+  display: flex;
+  align-items: center;
+}
+
+label,
+input {
+  font-family: 'Heebo', sans-serif;
+  font-weight: 900;
+}
+
+label {
+  font-size: 30px;
+}
+
+input {
+  width: 40vw;
+  margin-left: 20px;
+  font-size: 25px;
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  label {
+    font-size: 20px;
+  }
+
+  input {
+    width: 50vw;
+    margin-left: 5px;
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 760px) {
+  label {
+    font-size: 25px;
+  }
+
+  input {
+    width: 50vw;
+    margin-left: 5px;
+    font-size: 20px;
+  }
+}
