@@ -28,9 +28,7 @@ img {
 }
 
 .Result {
-  margin: 20px;
-  width: 10vw;
-  height: 13vh;
+  margin: 10px;
 }
 
 p {
@@ -39,7 +37,7 @@ p {
   padding: 0.5rem 0 0 1.5rem;
   display: block;
   width: 100px;
-  overflow: auto;
+  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
@@ -59,11 +57,6 @@ p {
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-  .Result {
-    width: auto;
-    height: auto;
-  }
-
   img {
     width: 10vw;
     height: 4vh;
@@ -77,11 +70,6 @@ p {
 }
 
 @media (min-width: 481px) and (max-width: 600px) {
-  .Result {
-    width: 15vw;
-    height: 15vh;
-  }
-
   img {
     width: 15vw;
     height: 7vh;
