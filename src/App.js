@@ -45,12 +45,12 @@ function App() {
       <section className="SearchFilterBar">
         <SearchBar getFirstPage={getFirstPage} query={query} setQuery={setQuery} />
         {loading && 
-        <div className="SpinnerLoading">
-          <img 
-            src="https://aulaparatodos.com/wp-content/plugins/thrive-visual-editor/editor/css/images/loader_transparent.gif"
-            alt="Spinner loading"
-          />
-        </div> }
+          <div className="SpinnerLoading">
+            <img 
+              src="./loader_transparent.gif"
+              alt="Spinner loading"
+            />
+          </div>}
         <FilterBar getFirstPage={getFirstPage} query={query} searchType={searchType} setSearchType={setSearchType} />
       </section>
       <section>
