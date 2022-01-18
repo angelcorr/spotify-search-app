@@ -27,3 +27,20 @@
   color: #000000;
   background-color: #FFFF;
 }
+
+
+@media (min-width: 320px) and (max-width: 410px) {
+  .Authorization button {
+    width: 50vw;
+    height: 6vh;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 411px) and (max-width: 760px) {
+  .Authorization button {
+    width: 40vw;
+    height: 6vh;
+    font-size: 1rem;
+  }
+}
