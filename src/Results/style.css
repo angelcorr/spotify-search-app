@@ -62,8 +62,12 @@ p {
   height: 4vh;
   background-color: #000000;
   color: #FFFF;
-  border: 1px solid #FFFF;
+  border: 1px solid #000000;
   border-radius: 25px;
+}
+
+.ShowMore button:hover {
+  box-shadow: 0 0 10px #000000;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
