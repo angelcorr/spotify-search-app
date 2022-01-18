@@ -1,5 +1,4 @@
 import axios from 'axios';
-import getToken from '../getToken';
 
 import './style.css';
 
@@ -16,11 +15,11 @@ const addAllTypesToNextUrl = (nextUrl) => {
   return `${baseUrl}?${searchParams.toString()}`;
 };
 
-const ResultsForAll = ({ results, setResults, setLoading, nextUrl, setNextUrl }) => {
+const ResultsForAll = ({ token, results, setResults, setLoading, nextUrl, setNextUrl }) => {
   const handleShowMore = async () => {
     setLoading(true);
 
-    const headers = { Authorization: `Bearer ${getToken()}` };
+    const headers = { Authorization: `Bearer ${token}` };
     // Adding all types to just albums next URL
     const { data } = await axios.get(addAllTypesToNextUrl(nextUrl), { headers });
     const results = [...data.albums.items, ...data.artists.items, ...data.tracks.items];
@@ -56,11 +55,11 @@ const ResultsForAll = ({ results, setResults, setLoading, nextUrl, setNextUrl })
   );
 };
 
-const ResultsForType = ({ results, setResults, setLoading, nextUrl, setNextUrl, searchType }) => {
+const ResultsForType = ({ token, results, setResults, setLoading, nextUrl, setNextUrl, searchType }) => {
   const handleShowMore = async () => {
     setLoading(true);
 
-    const headers = { Authorization: `Bearer ${getToken()}` };
+    const headers = { Authorization: `Bearer ${token}` };
     const { data } = await axios.get(nextUrl, { headers });
     const results = data[searchType.toLowerCase() + 's'].items;
     const newNextUrl = data[searchType.toLowerCase() + 's'].next;
@@ -90,12 +89,12 @@ const ResultsForType = ({ results, setResults, setLoading, nextUrl, setNextUrl, 
   );
 };
 
-const Results = ({ results, setResults, searchType, setLoading, nextUrl, setNextUrl }) => {
+const Results = ({ token, results, setResults, searchType, setLoading, nextUrl, setNextUrl }) => {
   if (searchType === 'All') {
-    return <ResultsForAll results={results} setResults={setResults} setLoading={setLoading} nextUrl={nextUrl} setNextUrl={setNextUrl} />
+    return <ResultsForAll token={token} results={results} setResults={setResults} setLoading={setLoading} nextUrl={nextUrl} setNextUrl={setNextUrl} />
   }
 
-  return <ResultsForType results={results} setResults={setResults} setLoading={setLoading} nextUrl={nextUrl} setNextUrl={setNextUrl} searchType={searchType} />;
+  return <ResultsForType token={token} results={results} setResults={setResults} setLoading={setLoading} nextUrl={nextUrl} setNextUrl={setNextUrl} searchType={searchType} />;
 };
 
 export default Results;

@@ -5,7 +5,7 @@ import './App.css';
 import SearchBar from './SearchBar';
 import FilterBar from './FilterBar';
 import Results from './Results';
-import getToken from './getToken';
+import Authorization from './Authorization';
 
 function App() {
   const [query, setQuery] = useState('');
@@ -13,6 +13,7 @@ function App() {
   const [results, setResults] = useState([]);
   const [searchType, setSearchType] = useState('All');
   const [nextUrl, setNextUrl] = useState(null);
+  const [token, setToken] = useState(null);
 
   const getFirstPage = async (query, searchTypeInput = searchType) => {
     if (!query) return;
@@ -25,7 +26,7 @@ function App() {
       limit: searchTypeInput === 'All' ? 2 : 5,
       offset: 0,
     };
-    const headers = { Authorization: `Bearer ${getToken()}` };
+    const headers = { Authorization: `Bearer ${token}` };
     const { data } = await axios.get('https://api.spotify.com/v1/search', { params, headers });
 
     const results = searchTypeInput === 'All' ?
@@ -39,6 +40,8 @@ function App() {
 
     setLoading(false);
   };
+
+  if (!token) return <Authorization token={token} setToken={setToken} />;
 
   return (
     <main className="App">
@@ -54,7 +57,7 @@ function App() {
         <FilterBar getFirstPage={getFirstPage} query={query} searchType={searchType} setSearchType={setSearchType} />
       </section>
       <section>
-        <Results results={results} searchType={searchType} setLoading={setLoading} setResults={setResults} nextUrl={nextUrl} setNextUrl={setNextUrl} />
+        <Results token={token} results={results} searchType={searchType} setLoading={setLoading} setResults={setResults} nextUrl={nextUrl} setNextUrl={setNextUrl} />
       </section>
     </main>
   );
