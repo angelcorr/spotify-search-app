@@ -6,6 +6,8 @@ const getImage = (result) =>
   (result.type === 'track' ? result.album.images[1]?.url : result.images[1]?.url) ||
   'https://via.placeholder.com/120x120';
 
+const getUrl = (result) => result?.external_urls?.spotify || 'https://www.spotify.com/';
+
 const addAllTypesToNextUrl = (nextUrl) => {
   const baseUrl = nextUrl.substring(0, nextUrl.indexOf('?'));
   const query = nextUrl.substring(nextUrl.indexOf('?'));
@@ -37,12 +39,14 @@ const ResultsForAll = ({ token, results, setResults, setLoading, nextUrl, setNex
     <div className="Results">
       <div className="ResultList">
         {displayFive.map(result => (
-          <div key={result.id} className="Result">
-            <img src={getImage(result)} alt={result.name} />
-            <div>
-              <p>{result.name}</p>
+          <a href={getUrl(result)} target="_blank" rel="noreferrer">
+            <div key={result.id} className="Result">
+              <img src={getImage(result)} alt={result.name} />
+              <div>
+                <p>{result.name}</p>
+              </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
 
@@ -73,10 +77,12 @@ const ResultsForType = ({ token, results, setResults, setLoading, nextUrl, setNe
     <div className='Results'>
       <div className="ResultList">
         {results.map(result => (
-          <div key={result.id} className="Result">
-            <img src={getImage(result)} alt={result.name} />
-            <p> {result.name} </p>
-          </div>
+          <a href={getUrl(result)} target="_blank" rel="noreferrer">
+            <div key={result.id} className="Result">
+              <img src={getImage(result)} alt={result.name} />
+              <p> {result.name} </p>
+            </div>
+          </a>
         ))}
       </div>
 
