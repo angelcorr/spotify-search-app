@@ -9,7 +9,7 @@ const FilterBar = ({ getFirstPage, query, searchType, setSearchType }) => {
   };
 
   return (
-    <div className="SearchBar">
+    <div className="FilterBar">
       <button type="button" onClick={handleClick} className={searchType === 'All' ? 'FilterBarCurrent' : 'FilterButton'}>All</button>
       <button type="button" onClick={handleClick} className={searchType === 'Artist' ? 'FilterBarCurrent' : 'FilterButton'}>Artist</button>
       <button type="button" onClick={handleClick} className={searchType === 'Album' ? 'FilterBarCurrent' : 'FilterButton'}>Album</button>
