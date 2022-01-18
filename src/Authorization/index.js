@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import CryptoJS from 'crypto-js';
 
+import './style.css';
+
 const clientId = '13d71b825e984f53be2c87c7af2c2228';
 const redirectUri = `${window.location.origin}${window.location.pathname}`;
 
@@ -44,7 +46,13 @@ const Authorization = ({ token, setToken }) => {
     window.location = 'https://accounts.spotify.com/authorize?' + params.toString();
   };
 
-  return <button onClick={handleAuthorize}>Authorize</button>;
+  return (
+    <div className="Authorization">
+      <button onClick={handleAuthorize}>
+        Log in with Spotify
+      </button>
+    </div>
+  );
 };
 
 export default Authorization;

@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Arsenal&family=Heebo:wght@300&display=swap');
+
+.Authorization {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Authorization button {
+  width: 20vw;
+  height: 7vh;
+  font-family: 'Heebo', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  background-color: #000000;
+  color: #FFFF;
+  border: 1px solid #000000;
+  border-radius: 13px;
+  transition: all .2s ease-in-out;
+}
+
+.Authorization button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #000000;
+  color: #000000;
+  background-color: #FFFF;
+}
