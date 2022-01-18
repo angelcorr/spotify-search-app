@@ -1,3 +1,13 @@
+.SpinnerLoading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: #6567696c;
+}
+
 .SpinnerLoading img {
   border: none;
 }

@@ -45,15 +45,16 @@ function App() {
 
   return (
     <main className="App">
+      {loading && 
+        <div className="SpinnerLoading">
+          <img 
+            src="./loader_transparent.gif"
+            alt="Spinner loading"
+          />
+        </div>
+      }
       <section className="SearchFilterBar">
         <SearchBar getFirstPage={getFirstPage} query={query} setQuery={setQuery} />
-        {loading && 
-          <div className="SpinnerLoading">
-            <img 
-              src="./loader_transparent.gif"
-              alt="Spinner loading"
-            />
-          </div>}
         <FilterBar getFirstPage={getFirstPage} query={query} searchType={searchType} setSearchType={setSearchType} />
       </section>
       <section>
